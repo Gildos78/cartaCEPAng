@@ -13,10 +13,7 @@ export class LoginComponent implements OnInit {
 
   public formLogin:FormGroup;
 
-  constructor(private fb:FormBuilder,
-    private loginService:LoginService,
-    private route:Router, private toast:ToastrService
-    ) {
+  constructor(private fb:FormBuilder, private loginService:LoginService, private route:Router, private toast:ToastrService) { 
     this.formLogin = this.criarFormLogin();
   }
 
@@ -30,7 +27,7 @@ export class LoginComponent implements OnInit {
       password:["", [Validators.required, Validators.minLength(6)]]
     })
   }
-
+  
 
   public isFormControlInvalid(controlName:string):boolean{
     return !!(this.formLogin.get(controlName)?.invalid && this.formLogin.get(controlName)?.touched)
